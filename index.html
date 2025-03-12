@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllData ROI Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">AllData ROI Calculator</h1>
+        
+        <div class="card">
+            <div class="card-body">
+                <form id="roiForm">
+                    <div class="mb-3">
+                        <label for="numTechs" class="form-label">Number of Technicians</label>
+                        <input type="number" class="form-control" id="numTechs" required min="1">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="numBays" class="form-label">Number of Service Bays</label>
+                        <input type="number" class="form-control" id="numBays" required min="1">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="hoursOpen" class="form-label">Hours Open per Day</label>
+                        <input type="number" class="form-control" id="hoursOpen" required min="1" max="24">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="carsPerDay" class="form-label">Cars Serviced per Day</label>
+                        <input type="number" class="form-control" id="carsPerDay" required min="1">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="researchTime" class="form-label">Average Research Time per Job (minutes)</label>
+                        <input type="number" class="form-control" id="researchTime" required min="0">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="comebacks" class="form-label">Average Comebacks per Week</label>
+                        <input type="number" class="form-control" id="comebacks" required min="0" step="0.1">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Calculate ROI</button>
+                </form>
+                
+                <div id="results" class="mt-4" style="display: none;">
+                    <h3>Estimated ROI Results</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <p><strong>Monthly Savings: </strong><span id="monthlySavings">$0</span></p>
+                            <p><strong>Annual ROI: </strong><span id="annualRoi">0%</span></p>
+                            <p><strong>Payback Period: </strong><span id="paybackPeriod">0 months</span></p>
+                            <hr>
+                            <h4>Breakdown of Savings</h4>
+                            <p><strong>Research Time Savings: </strong><span id="researchSavings">$0</span>/month</p>
+                            <p><strong>Comeback Reduction Savings: </strong><span id="comebackSavings">$0</span>/month</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="calculator.js"></script>
+</body>
+</html> 
